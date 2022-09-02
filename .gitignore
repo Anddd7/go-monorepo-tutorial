@@ -3,3 +3,7 @@
 **/build
 
 *.pb.go
+
+.terraform/*
+.terraform.lock.hcl
+terraform.tfstate
