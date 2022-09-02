@@ -1,0 +1,26 @@
+apiVersion: skaffold/v2beta29
+kind: Config
+metadata:
+  name: monorepo-tutorial
+build:
+  local:
+    push: false
+  artifacts:
+    - image: github.com/anddd7/monorepo/product
+      context: services/product
+      custom:
+        buildCommand: make manifest
+        dependencies:
+          paths:
+            - .
+          ignore:
+            - build/**
+    - image: github.com/anddd7/monorepo/order
+      context: services/order
+      custom:
+        buildCommand: make manifest
+        dependencies:
+          paths:
+            - .
+          ignore:
+            - build/**

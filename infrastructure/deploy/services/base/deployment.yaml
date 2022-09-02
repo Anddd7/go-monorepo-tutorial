@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${SERVICE_NAME}
+  labels:
+    app: ${SERVICE_NAME}
+    version: ${VERSION}
+spec:
+  selector:
+    matchLabels:
+      app: ${SERVICE_NAME}
+  template:
+    metadata:
+      labels:
+        app: ${SERVICE_NAME}
+        version: ${VERSION}
+    spec:
+      containers:
+        - name: ${SERVICE_NAME}
+          image: ${IMAGE}
+          #          imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: shared-configs
+                optional: true
+            - configMapRef:
+                name: ${SERVICE_NAME}
+                optional: true
+            - configMapRef:
+                name: ${SERVICE_NAME}-terraform
+                optional: true
+            - configMapRef:
+                name: shared-secrets
+                optional: true
+            - secretRef:
+                name: ${SERVICE_NAME}
+                optional: true
+            - secretRef:
+                name: ${SERVICE_NAME}-terraform
+                optional: true
+          ports:
+            - name: grpc
+              containerPort: 8080
+#          readinessProbe:
+#            httpGet:
+#              port: 8080
+#              scheme: HTTP
+#              path: /readiness
+#            failureThreshold: 1
+#            initialDelaySeconds: 5
+#          livenessProbe:
+#            httpGet:
+#              port: 8080
+#              scheme: HTTP
+#              path: /liveness
+#            failureThreshold: 5
+#            initialDelaySeconds: 5

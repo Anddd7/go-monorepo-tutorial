@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "github.com/anddd7/monorepo/services/order";
+option java_multiple_files = true;
+option java_package = "com.github.anddd7.monorepo.services.order";
+option java_outer_classname = "OrderProto";
+
+import "product/product.proto";
+
+package order;
+
+service OrderService {
+  rpc GetOrder (GetOrderReq) returns (Order) {}
+  rpc CreateOrder (CreateOrderReq) returns (CreateOrderResp) {}
+}
+
+message Order {
+  int64 id = 1;
+  repeated product.Product products = 2;
+  int32 total_price_cent = 3;
+  int32 status = 4;
+}
+message GetOrderReq {
+  int64 id = 1;
+}
+message CreateOrderReq {
+  string name = 1;
+  repeated int64 product_id = 2;
+}
+message CreateOrderResp {
+  int64 id = 1;
+}

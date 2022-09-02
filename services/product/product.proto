@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "github.com/anddd7/monorepo/services/product";
+option java_multiple_files = true;
+option java_package = "com.github.anddd7.monorepo.services.product";
+option java_outer_classname = "ProductProto";
+
+package product;
+
+service ProductService {
+  rpc GetProduct (GetProductReq) returns (Product) {}
+  rpc CreateProduct (CreateProductReq) returns (CreateProductResp) {}
+}
+
+message Product {
+  int64 id = 1;
+  string name = 2;
+  int32 price_cent = 3;
+  int32 status = 4;
+}
+message GetProductReq {
+  int64 id = 1;
+}
+message CreateProductReq {
+  string name = 1;
+  int32 price_cent = 2;
+}
+message CreateProductResp {
+  int64 id = 1;
+}

@@ -1,0 +1,25 @@
+# @team-leads should be the person in charge
+# @sre can do the hotfix when necessary
+*                           @team-leads @sre
+
+# `infrastructure` includes the cluster setup, ci/cd process, basic infra template
+# @sre should take the responsibility of this
+/infrastructure/            @sre
+
+# `gateway` controls the boundary of the services, there are higher requirements for security and consistency
+# @team-leads have to ensure the interfaces are secure
+/gateway/                   @team-leads
+
+# `pkg` just hold the shared codes used across the services
+# `pkg` open to everyone, if only modified incrementally here
+# /pkg/                     @all
+
+# `services` stores the code, deploy script of each service
+# `services` belongs to the functional team
+/services/order/            @order
+/services/product/          @product
+
+
+# `services.orchestration` can be used to quickly implement functionality without changing the code of each service
+# @frontier is a logic team that works closely with the business to achieve requirements quickly
+/services/orchestration/    @frontier
