@@ -3,7 +3,7 @@
 ## Root Layer
 
 - dev-mac
-- dev-windows
+- local-windows
 - modules
 - shared
 
