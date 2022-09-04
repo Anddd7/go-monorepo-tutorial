@@ -5,7 +5,8 @@ RELATIVE_PATH		:= ${VAR_RELATIVE_PATH}
 # calculated variables
 
 DEPLOY_DIR 			:= ${RELATIVE_PATH}/deploy
-MANIFEST_FILE 		:= ${RELATIVE_PATH}/build/k8s.yaml
+MANIFEST_FOLDER 	:= ${VAR_GIT_ROOT_DIR}/artifact/argocd/${ENV}/services/${SERVICE_NAME}
+MANIFEST_FILE 		:= ${MANIFEST_FOLDER}/k8s.yaml
 
 # required environment variables
 
@@ -24,4 +25,5 @@ dry-run: manifest-version docker-local
 manifest: export VERSION=${VAR_COMPILE_TIME}-${VAR_GIT_REVISION}
 manifest: manifest-version docker
 	@echo ">> dry-run the kubernetes specs"
+	mkdir -p ${MANIFEST_FOLDER}
 	kustomize build ${DEPLOY_DIR}/overlays/${ENV} | envsubst >| ${MANIFEST_FILE}
