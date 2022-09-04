@@ -8,7 +8,6 @@
 
 VAR_REPO_PATH 			:= .
 VAR_PROJECT_IDENTIFIER	:= github.com/anddd7/monorepo
-VAR_ENV					?= dev-mac
 
 # generic variables
 

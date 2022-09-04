@@ -22,5 +22,9 @@ echo "2. start kubernetes cluster in minikube"
 
 minikube start --memory=16384 --cpus=4
 
+echo "3. install supporting resources into k8s cluster"
+
+terraform apply -auto-approve
+
 # --------------------------------------
 echo "| build end: Layer1"
