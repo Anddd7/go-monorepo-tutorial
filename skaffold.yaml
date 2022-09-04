@@ -26,5 +26,3 @@ build:
             - build/**
 profiles:
   - name: local-windows
-    activation:
-      - env: ENV=local-windows
