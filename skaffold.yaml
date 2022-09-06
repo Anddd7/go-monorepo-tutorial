@@ -25,4 +25,5 @@ build:
           ignore:
             - build/**
 profiles:
-  - name: local-windows
+  - name: wsl-ubuntu-dev
+  - name: macos-dev

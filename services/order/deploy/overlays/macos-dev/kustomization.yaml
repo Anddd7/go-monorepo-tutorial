@@ -1,4 +1,4 @@
-namespace: dev-mac
+namespace: macos-dev
 
 bases:
   - ../../base

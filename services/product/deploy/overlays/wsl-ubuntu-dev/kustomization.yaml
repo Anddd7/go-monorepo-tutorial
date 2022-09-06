@@ -1,0 +1,4 @@
+namespace: wsl-ubuntu-dev
+
+bases:
+  - ../../base

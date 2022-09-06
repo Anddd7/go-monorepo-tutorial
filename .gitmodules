@@ -1,0 +1,3 @@
+[submodule "artifact/argocd"]
+	path = artifact/argocd
+	url = git@github.com:Anddd7/go-monorepo-tutorial-argocd.git

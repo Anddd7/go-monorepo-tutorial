@@ -14,7 +14,8 @@ import (
 )
 
 var (
-	port = envs.GetEnvOrStr("PORT", strconv.Itoa(envs.LocalProductPort))
+	port         = envs.GetEnvOrStr("PORT", strconv.Itoa(envs.LocalProductPort))
+	productOwner = envs.GetEnvOrPanic("PRODUCT_OWNER")
 )
 
 type server struct {
@@ -24,7 +25,7 @@ type server struct {
 func (s server) GetProduct(ctx context.Context, req *this.GetProductReq) (*this.Product, error) {
 	return &this.Product{
 		Id:        req.GetId(),
-		Name:      "Initial Product",
+		Name:      "Initial Product - " + productOwner,
 		PriceCent: 99800,
 		Status:    0,
 	}, nil
