@@ -1,21 +1,44 @@
 # terraform structure
 
-## Root Layer
+## Platform Level
 
-- dev-mac
-- local-windows
-- modules
-- shared
+available platform
+- macos
+- wsl-ubuntu
+- aws
+- gcp
+- alicloud
 
-## Environment Layer
+modules, create the standard and reusable modules
+- reusable resources
+- services 
+- apps 
 
-- layer1
+## Infrastructure Layer level
+
+### layer0: set up the platform to build the fundamental things 
+
+e.g.
   - account setup
   - remote state
   - access boundary
   - networking
-- layer2
-  - kubernetes cluster
-  - install supporting services and tools
-- layer3
-  - install application
+
+### layer1: start the cluster and inbound & outbound traffic
+
+e.g.
+- kubernetes cluster
+- install supporting services and tools
+
+### layer2: deploy the applications via configurations
+
+e.g.
+- config and secret
+- environment variables
+
+## Environment Level
+
+- dev
+- qa
+- stg
+- prd

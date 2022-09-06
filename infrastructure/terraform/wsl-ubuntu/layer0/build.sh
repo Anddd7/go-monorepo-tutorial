@@ -9,7 +9,7 @@
 echo "| build start: Layer0"
 # --------------------------------------
 
-# local-windows is just a local environment in windows wsl, so we'll use shell script instead of cloud provider setup.
+# wsl-ubuntu is just a local environment in windows wsl, so we'll use shell script instead of cloud provider setup.
 # in this case, we don't need to do anything in local environment for layer0.
 
 # --------------------------------------
