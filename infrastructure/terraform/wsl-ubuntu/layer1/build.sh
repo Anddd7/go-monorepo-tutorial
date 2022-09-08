@@ -12,7 +12,7 @@ echo "1. install minikube"
 FILE=/usr/local/bin/minikube
 if test -f "$FILE"; then
     echo "$FILE exists."
-else 
+else
     curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
     sudo install minikube/usr/local/bin/minikube
     rm minikube

@@ -1,1 +1,1 @@
-env = "local-windows"
+env = "wsl-ubuntu-dev"
