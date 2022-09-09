@@ -16,20 +16,16 @@ module "argocd_self_managed_helm" {
 }
 
 resource "kubernetes_ingress_v1" "argocd-ingress" {
+  depends_on = [module.argocd_self_managed_helm]
+
   metadata {
     name      = "argocd-ingress"
     namespace = "argocd"
-    annotations = {
-      # "kubernetes.io/ingress.class" = "nginx"
-      # "nginx.ingress.kubernetes.io/force-ssl-redirect" = true
-      # "nginx.ingress.kubernetes.io/ssl-passthrough"  = "true"
-      # "nginx.ingress.kubernetes.io/backend-protocol" = "HTTPS"
-    }
   }
 
   spec {
     rule {
-      host = "argocd.192.168.49.2.xip.io"
+      host = "argocd.wsl-ubuntu.anddd7.io"
       http {
         path {
           path_type = "Prefix"
@@ -46,7 +42,7 @@ resource "kubernetes_ingress_v1" "argocd-ingress" {
       }
     }
     tls {
-      hosts       = ["argocd.192.168.49.2.xip.io"]
+      hosts       = ["argocd.wsl-ubuntu.anddd7.io"]
       secret_name = "argocd-secret"
     }
   }
