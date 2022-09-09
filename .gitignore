@@ -4,6 +4,9 @@
 
 *.pb.go
 
-.terraform/*
-.terraform.lock.hcl
+.terraform
+.terraform/**
+.terraform.lock*
+
 terraform.tfstate
+terraform.tfstate*

@@ -1,0 +1,2 @@
+variable "platform" {}
+variable "domain" {}

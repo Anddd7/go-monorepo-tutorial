@@ -24,7 +24,16 @@ minikube start --memory=16384 --cpus=4
 
 echo "3. install supporting resources into k8s cluster"
 
-terraform apply -auto-approve
+# dashboard
+minikube addons enable dashboard 
+# ingress
+minikube addons enable ingress 
+# istio
+minikube addons enable istio-provisioner 
+minikube addons enable istio 
+# others
+# TODO resolve ingress access issue
+# terraform apply -auto-approve
 
 # --------------------------------------
 echo "| build end: Layer1"
