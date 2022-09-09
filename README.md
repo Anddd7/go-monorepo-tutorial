@@ -8,11 +8,7 @@ create order, calculate total price of products and send notification to warehou
 
 ## todo list
 
-- [x] setup terraform
-  - [x] create k8s resources
 - [ ] ci/cd enhance
-  - [x] setup submodule for k8s manifest
-  - [ ] setup argocd
   - [ ] setup github actions ci to build manifest
 - [ ] setup cloud modules
   - [ ] aws

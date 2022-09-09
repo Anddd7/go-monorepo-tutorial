@@ -19,3 +19,9 @@ So, there are several ways to access the serivce, e.g. argocd
   - > expose the service via `minikube service <name> --url`
 
 Then, modify the `/etc/hosts` or use `curl -k https://127.0.0.1:33373 -H 'Host: argocd.wsl-ubuntu.anddd7.io'` to verify the connection.
+
+## ArgoCD
+
+Admin Password
+
+- `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d`

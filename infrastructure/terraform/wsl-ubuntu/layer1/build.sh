@@ -32,8 +32,7 @@ minikube addons enable ingress
 minikube addons enable istio-provisioner 
 minikube addons enable istio 
 # others
-# TODO resolve ingress access issue
-# terraform apply -auto-approve
+terraform apply -auto-approve
 
 # --------------------------------------
 echo "| build end: Layer1"
