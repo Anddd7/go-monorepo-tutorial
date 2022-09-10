@@ -7,7 +7,7 @@ option java_outer_classname = "ProductProto";
 
 package product;
 
-service ProductService {
+service InternalService {
   rpc GetProduct (GetProductReq) returns (Product) {}
   rpc CreateProduct (CreateProductReq) returns (CreateProductResp) {}
 }

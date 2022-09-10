@@ -2,14 +2,15 @@ package order
 
 import (
 	"fmt"
-	"github.com/anddd7/monorepo/pkg/envs"
 	"log"
+
+	"github.com/anddd7/monorepo/pkg/envs"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )
 
-func NewOrderClient(url string) OrderServiceClient {
+func NewOrderClient(url string) InternalServiceClient {
 	if url == "" {
 		url = fmt.Sprintf("localhost:%v", envs.LocalOrderPort)
 	}
@@ -18,5 +19,5 @@ func NewOrderClient(url string) OrderServiceClient {
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
-	return NewOrderServiceClient(conn)
+	return NewInternalServiceClient(conn)
 }

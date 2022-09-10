@@ -9,7 +9,7 @@ import "product/product.proto";
 
 package order;
 
-service OrderService {
+service InternalService {
   rpc GetOrder (GetOrderReq) returns (Order) {}
   rpc CreateOrder (CreateOrderReq) returns (CreateOrderResp) {}
 }

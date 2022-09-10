@@ -19,7 +19,7 @@ var (
 )
 
 type server struct {
-	this.ProductServiceServer
+	this.InternalServiceServer
 }
 
 func (s server) GetProduct(ctx context.Context, req *this.GetProductReq) (*this.Product, error) {
@@ -37,7 +37,7 @@ func (s server) CreateProduct(ctx context.Context, req *this.CreateProductReq) (
 }
 
 func register(s *grpc.Server) {
-	this.RegisterProductServiceServer(s, &server{})
+	this.RegisterInternalServiceServer(s, &server{})
 }
 
 func main() {

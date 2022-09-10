@@ -3,11 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
-	"google.golang.org/grpc"
 	"log"
 	"net"
 	"os"
 	"strconv"
+
+	"google.golang.org/grpc"
 
 	"github.com/anddd7/monorepo/pkg/envs"
 	this "github.com/anddd7/monorepo/services/order"
@@ -20,7 +21,7 @@ var (
 )
 
 type server struct {
-	productClient product.ProductServiceClient
+	productClient product.InternalServiceClient
 }
 
 func (s server) GetOrder(ctx context.Context, req *this.GetOrderReq) (*this.Order, error) {
@@ -48,7 +49,7 @@ func (s server) CreateOrder(ctx context.Context, req *this.CreateOrderReq) (*thi
 
 func register(s *grpc.Server) {
 	productClient := product.NewProductClient(productURL)
-	this.RegisterOrderServiceServer(s, &server{
+	this.RegisterInternalServiceServer(s, &server{
 		productClient: productClient,
 	})
 }
