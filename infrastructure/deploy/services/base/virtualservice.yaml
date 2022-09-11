@@ -1,0 +1,23 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: ${SERVICE_NAME}-internal
+spec:
+  hosts:
+    - ${SERVICE_NAME}
+  http:
+    - route:
+        - destination:
+            host: ${SERVICE_NAME}
+            subset: ${VERSION}
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: ${SERVICE_NAME}
+spec:
+  host: ${SERVICE_NAME}
+  subsets:
+    - name: ${VERSION}
+      labels:
+        version: ${VERSION}
