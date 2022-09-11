@@ -26,14 +26,27 @@ echo "3. install supporting resources into k8s cluster"
 
 # dashboard
 minikube addons enable dashboard 
+minikube addons enable metrics-server 
 # ingress
 minikube addons enable ingress 
 # istio
 minikube addons enable istio-provisioner 
-minikube addons enable istio 
+minikube addons enable istio
+
 # others
 terraform init --upgrade
 terraform apply -auto-approve
+
+# install metrics via istio addon
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.15/samples/addons/prometheus.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.15/samples/addons/grafana.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.15/samples/addons/jaeger.yaml
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.15/samples/addons/kiali.yaml
+
+echo "4. expose supporting tools"
+
+kubectl port-forward -n argocd svc/argocd-server 8080:443
+kubectl port-forward -n istio-system svc/kiali 20001:20001 
 
 # --------------------------------------
 echo "| build end: Layer1"
