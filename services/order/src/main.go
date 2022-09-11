@@ -11,6 +11,7 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/anddd7/monorepo/pkg/envs"
+	"github.com/anddd7/monorepo/pkg/healthcheck"
 	this "github.com/anddd7/monorepo/services/order"
 	"github.com/anddd7/monorepo/services/product"
 )
@@ -61,6 +62,7 @@ func main() {
 	}
 	s := grpc.NewServer()
 	register(s)
+	healthcheck.RegisterHealthServer(s)
 	log.Printf("server listening at %v", listener.Addr())
 	if err := s.Serve(listener); err != nil {
 		log.Fatalf("failed to serve: %v", err)
