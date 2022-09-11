@@ -1,8 +1,3 @@
-moved {
-  from = module.argocd_self_managed_helm
-  to   = module.argocd
-}
-
 module "argocd" {
   source = "lablabs/argocd/helm"
 
