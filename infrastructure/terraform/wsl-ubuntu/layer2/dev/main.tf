@@ -5,7 +5,9 @@ module "configmap" {
   namespace = "${var.env}-ns"
 
   data = {
-    ENV = var.env
+    ENV          = var.env
+    ENV_PROVIDER = var.env_provider
+    ENV_LEVEL    = var.env_level
   }
 }
 
