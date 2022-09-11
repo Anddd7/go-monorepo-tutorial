@@ -1,3 +1,16 @@
+module "configmap" {
+  source = "../../../modules/k8s-configmap"
+
+  name      = "shared-configs"
+  namespace = "${var.env}-ns"
+
+  data = {
+    ENV = var.env
+  }
+}
+
+
+
 module "product" {
   source = "../../../modules/services/product"
 

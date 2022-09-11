@@ -3,8 +3,7 @@ module "configmap" {
 
   name      = "product"
   namespace = "${var.env}-ns"
-  data      = {
-    ENV           = var.env
+  data = {
     PRODUCT_OWNER = "Anddd7"
   }
 }
