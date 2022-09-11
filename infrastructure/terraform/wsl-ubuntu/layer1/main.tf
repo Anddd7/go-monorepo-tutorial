@@ -1,5 +1,9 @@
+moved {
+  from = module.argocd_self_managed_helm
+  to   = module.argocd
+}
 
-module "argocd_self_managed_helm" {
+module "argocd" {
   source = "lablabs/argocd/helm"
 
   enabled           = true
