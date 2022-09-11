@@ -1,12 +1,17 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: ${SERVICE_NAME}-internal
+  name: ${SERVICE_NAME}-grpc
 spec:
   hosts:
-    - ${SERVICE_NAME}
+    - "*"
+  gateways:
+    - dynamicloading-gateway
   http:
-    - route:
+    - match:
+        - uri:
+            prefix: /${SERVICE_NAME}.InternalService
+      route:
         - destination:
             host: ${SERVICE_NAME}
             subset: ${VERSION}

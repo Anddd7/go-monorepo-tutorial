@@ -5,6 +5,7 @@ metadata:
   labels:
     app: ${SERVICE_NAME}
     version: ${VERSION}
+    date: ${DATE}
 spec:
   selector:
     matchLabels:
@@ -18,10 +19,9 @@ spec:
       containers:
         - name: ${SERVICE_NAME}
           image: ${IMAGE}
-          #          imagePullPolicy: Always
           envFrom:
             - configMapRef:
-                name: shared-configs
+                name: shared-configs-terraform
                 optional: true
             - configMapRef:
                 name: ${SERVICE_NAME}
@@ -30,7 +30,7 @@ spec:
                 name: ${SERVICE_NAME}-terraform
                 optional: true
             - configMapRef:
-                name: shared-secrets
+                name: shared-secrets-terraform
                 optional: true
             - secretRef:
                 name: ${SERVICE_NAME}
