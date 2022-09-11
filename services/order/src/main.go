@@ -16,8 +16,8 @@ import (
 )
 
 var (
-	port       = envs.GetEnvOrStr("PORT", strconv.Itoa(envs.LocalOrderPort))
-	productURL = os.Getenv("PRODUCT_URL")
+	env  = os.Getenv("ENV")
+	port = envs.GetEnvOrStr("PORT", strconv.Itoa(envs.LocalOrderPort))
 )
 
 type server struct {
@@ -48,7 +48,7 @@ func (s server) CreateOrder(ctx context.Context, req *this.CreateOrderReq) (*thi
 }
 
 func register(s *grpc.Server) {
-	productClient := product.NewProductClient(productURL)
+	productClient := product.NewProductClient(env)
 	this.RegisterInternalServiceServer(s, &server{
 		productClient: productClient,
 	})
