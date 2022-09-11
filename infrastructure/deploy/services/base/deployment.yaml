@@ -44,6 +44,13 @@ spec:
           env:
             - name: PORT
               value: "50051"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 200m
+              memory: 200Mi
 #          readinessProbe:
 #            httpGet:
 #              port: 8080
