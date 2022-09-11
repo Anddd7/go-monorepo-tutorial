@@ -2,7 +2,7 @@ module "configmap" {
   source = "../../k8s-configmap"
 
   name      = "product"
-  namespace = "${var.env}-ns"
+  namespace = var.namespace
   data = {
     PRODUCT_OWNER = "Anddd7"
   }

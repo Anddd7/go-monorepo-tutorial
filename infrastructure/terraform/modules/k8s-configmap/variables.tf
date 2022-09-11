@@ -1,3 +1,5 @@
 variable "name" {}
 variable "namespace" {}
-variable "data" {}
+variable "data" {
+  default = {}
+}
