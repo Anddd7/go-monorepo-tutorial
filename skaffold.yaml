@@ -13,6 +13,7 @@ build:
         dependencies:
           paths:
             - .
+            - ../../pkg
           ignore:
             - build/**
     - image: github.com/anddd7/monorepo/order
@@ -22,6 +23,7 @@ build:
         dependencies:
           paths:
             - .
+            - ../../pkg
           ignore:
             - build/**
 profiles:
