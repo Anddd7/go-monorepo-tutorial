@@ -32,6 +32,7 @@ minikube addons enable ingress
 minikube addons enable istio-provisioner 
 minikube addons enable istio 
 # others
+terraform init --upgrade
 terraform apply -auto-approve
 
 # --------------------------------------
