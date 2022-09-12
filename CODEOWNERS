@@ -2,9 +2,10 @@
 # @sre can do the hotfix when necessary
 *                           @team-leads @sre
 
-# `infrastructure` includes the cluster setup, ci/cd process, basic infra template
+# `infrastructure` and `scripts` includes the cluster setup, ci/cd process, basic infra template
 # @sre should take the responsibility of this
 /infrastructure/            @sre
+/scripts/                   @sre
 
 # `gateway` controls the boundary of the services, there are higher requirements for security and consistency
 # @team-leads have to ensure the interfaces are secure
