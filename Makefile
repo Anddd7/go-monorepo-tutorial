@@ -5,10 +5,10 @@ ENV 				?= wsl-ubuntu-dev
 build: export TARGET_ENV=${ENV}
 build:
 	skaffold build -p ${ENV}
-	./infrastructure/shell/argocd_push.sh 'in ${GIT_REVISION} at ${COMPILE_TIME}'
+	./scripts/shell/argocd_push.sh 'in ${GIT_REVISION} at ${COMPILE_TIME}'
 
 setup-linux:
-	./infrastructure/shell/dev-setup-linux.sh
+	./scripts/shell/dev-setup-linux.sh
 
 setup-macos:
-	./infrastructure/shell/dev-setup-macos.sh
+	./scripts/shell/dev-setup-macos.sh

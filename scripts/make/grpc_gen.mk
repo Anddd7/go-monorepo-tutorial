@@ -11,4 +11,4 @@ ROOT_DIR 		:= ${GIT_ROOT_DIR}/${REPO_PATH}
 
 gen:
 	@echo ">> generating grpc"
-	$(ROOT_DIR)/infrastructure/shell/grpc_gen.sh
+	$(ROOT_DIR)/scripts/shell/grpc_gen.sh

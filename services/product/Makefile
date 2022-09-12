@@ -1,6 +1,6 @@
-include ../../infrastructure/make/variables.mk
-include ../../infrastructure/make/grpc_gen.mk
-include ../../infrastructure/make/golang.mk
-include ../..//infrastructure/make/skaffold.mk
+include ../../scripts/make/variables.mk
+include ../../scripts/make/grpc_gen.mk
+include ../../scripts/make/golang.mk
+include ../../scripts/make/skaffold.mk
 
 SERVICE_NAME := product

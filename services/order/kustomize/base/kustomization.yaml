@@ -1,0 +1,2 @@
+bases:
+  - ../../../../scripts/kustomize/services/base

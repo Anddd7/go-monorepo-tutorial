@@ -12,7 +12,6 @@ ARGS_GO_BUILD 		:= ${VAR_ARGS_GO_BUILD}
 
 ROOT_DIR 			:= ${GIT_ROOT_DIR}/${REPO_PATH}
 BUILD_DIR 			:= ${RELATIVE_PATH}/build
-DEPLOY_DIR 			:= ${RELATIVE_PATH}/deploy
 MAIN_ENTRY 			:= ${RELATIVE_PATH}/src/main.go
 
 # commands
@@ -42,7 +41,7 @@ docker: build-linux docker-build
 
 docker-build:
 	@echo ">> build the docker image"
-	$(ROOT_DIR)/infrastructure/shell/docker_build.sh
+	$(ROOT_DIR)/scripts/shell/docker_build.sh
 
 # cleanup the grpc stubs and binary
 .PHONY:clean
