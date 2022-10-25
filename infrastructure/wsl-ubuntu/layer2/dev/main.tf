@@ -1,6 +1,6 @@
 resource "kubernetes_namespace" "namespace" {
   metadata {
-    name = var.env
+    name   = var.namespace
     labels = {
       "istio-injection" = "enabled"
     }
@@ -40,24 +40,24 @@ module "configmap" {
   namespace = local.namespace
 
   data = {
-    ENV          = var.env
-    ENV_PROVIDER = var.env_provider
-    ENV_LEVEL    = var.env_level
+    ENV       = var.env
+    NAMESPACE = var.namespace
+    PLATFORM  = var.platform
   }
 }
 
 module "product" {
-  source     = "../../../modules/services/product"
+  source     = "../../../../services/product/terraform"
   depends_on = [kubernetes_namespace.namespace]
 
   env       = var.env
-  namespace = local.namespace
+  namespace = var.namespace
 }
 
 module "order" {
-  source     = "../../../modules/services/order"
+  source     = "../../../../services/order/terraform"
   depends_on = [kubernetes_namespace.namespace]
 
   env       = var.env
-  namespace = local.namespace
+  namespace = var.namespace
 }

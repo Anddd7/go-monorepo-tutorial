@@ -1,3 +1,3 @@
-env          = "wsl-ubuntu-dev"
-env_provider = "wsl-ubuntu"
-env_level    = "dev"
+platform  = "wsl-ubuntu"
+env       = "dev"
+namespace = "wsl-ubuntu-dev"

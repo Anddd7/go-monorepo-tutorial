@@ -1,1 +1,3 @@
-env = "wsl-ubuntu-dev"
+env       = "dev"
+platform  = "macos"
+namespace = "macos-dev"

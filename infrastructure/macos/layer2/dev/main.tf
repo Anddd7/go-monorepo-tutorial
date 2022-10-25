@@ -1,11 +1,13 @@
 module "product" {
-  source = "../../../modules/services/product"
+  source = "../../../../services/product/terraform"
 
-  env = var.env
+  env       = var.env
+  namespace = var.namespace
 }
 
 module "order" {
-  source = "../../../modules/services/order"
+  source = "../../../../services/order/terraform"
 
-  env = var.env
+  env       = var.env
+  namespace = var.namespace
 }
