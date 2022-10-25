@@ -7,18 +7,18 @@
 echo "| build start: Layer1"
 # --------------------------------------
 
-echo "1. install minikube"
+echo "1. install colima"
 
-FILE=/usr/local/bin/minikube
+FILE=/usr/local/bin/colima
 if test -f "$FILE"; then
     echo "$FILE exists."
 else
-    brew install minikube
+    brew install colima
 fi
 
-echo "2. start kubernetes cluster in minikube"
+echo "2. start kubernetes cluster in colima"
 
-minikube start
+colima start --kubernetes
 
 echo "3. install supporting resources into k8s cluster"
 
