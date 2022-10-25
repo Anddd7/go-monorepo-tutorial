@@ -6,7 +6,7 @@ build:
   local:
     push: false
   artifacts:
-    - image: github.com/anddd7/monorepo/product
+    - image: ghcr.io/anddd7/monorepo/product
       context: services/product
       custom:
         buildCommand: make manifest
@@ -16,7 +16,7 @@ build:
             - ../../pkg
           ignore:
             - build/**
-    - image: github.com/anddd7/monorepo/order
+    - image: ghcr.io/anddd7/monorepo/order
       context: services/order
       custom:
         buildCommand: make manifest

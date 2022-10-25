@@ -7,7 +7,9 @@
 # !!!should be modified when generate new repo from this!!!
 
 VAR_REPO_PATH 			:= .
-VAR_PROJECT_IDENTIFIER	:= github.com/anddd7/monorepo
+VAR_OWNER_NAME			:= anddd7
+VAR_PROJECT_IDENTIFIER	:= monorepo
+VAR_REPO_URL			:= https://github.com/Anddd7/go-monorepo-tutorial
 
 # generic variables
 

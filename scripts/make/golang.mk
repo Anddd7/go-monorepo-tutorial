@@ -14,6 +14,11 @@ ROOT_DIR 			:= ${GIT_ROOT_DIR}/${REPO_PATH}
 BUILD_DIR 			:= ${RELATIVE_PATH}/build
 MAIN_ENTRY 			:= ${RELATIVE_PATH}/src/main.go
 
+# required environment variables
+
+export REPO_URL=${VAR_REPO_URL}
+export OWNER_NAME=${VAR_OWNER_NAME}
+
 # commands
 
 run: gen
@@ -31,7 +36,7 @@ build-linux: gen
 
 # build the docker image locally
 # set the required envs manually
-docker-local: export IMAGE=${PROJECT_IDENTIFIER}/${SERVICE_NAME}:${GIT_REVISION}-locally
+docker-local: export IMAGE=ghcr.io/${OWNER_NAME}/${PROJECT_IDENTIFIER}/${SERVICE_NAME}:${GIT_REVISION}-locally
 docker-local: export BUILD_CONTEXT=${RELATIVE_PATH}
 docker-local: build-linux docker-build
 
