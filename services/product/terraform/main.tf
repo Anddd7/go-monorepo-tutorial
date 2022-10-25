@@ -1,5 +1,5 @@
 module "configmap" {
-  source = "../../k8s-configmap"
+  source = "../../../infrastructure/modules/k8s-configmap"
 
   name      = "product"
   namespace = var.namespace
