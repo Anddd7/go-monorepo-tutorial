@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "| destroy start: Layer2"
+# --------------------------------------
+
+echo "1. destroy resources (skipped)"
+
+#terraform destroy -auto-approve
+
+# --------------------------------------
+echo "| destroy end: Layer2"
