@@ -1,13 +1,13 @@
 syntax = "proto3";
 
+package order;
+
+import "product/product.proto";
+
 option go_package = "github.com/anddd7/monorepo/services/order";
 option java_multiple_files = true;
 option java_package = "com.github.anddd7.monorepo.services.order";
 option java_outer_classname = "OrderProto";
-
-import "product/product.proto";
-
-package order;
 
 service InternalService {
   rpc GetOrder (GetOrderReq) returns (Order) {}

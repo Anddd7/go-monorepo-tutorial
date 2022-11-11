@@ -17,7 +17,7 @@ FILE=/usr/local/bin/protoc
 if test -f "$FILE"; then
   echo "$FILE exists."
 else
-  sudo apt install -y protobuf-compiler
+  brew install protobuf
   go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
   go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
 fi
