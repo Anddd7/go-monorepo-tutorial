@@ -26,6 +26,3 @@ build:
             - ../../pkg
           ignore:
             - build/**
-profiles:
-  - name: wsl-ubuntu-dev
-  - name: macos-dev

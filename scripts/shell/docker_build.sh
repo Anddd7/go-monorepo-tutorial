@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo "$CR_PAT" | docker login ghcr.io -u "$OWNER_NAME" --password-stdin
+#echo "$CR_PAT" | docker login ghcr.io -u "$OWNER_NAME" --password-stdin
 
 docker build \
   --label "org.opencontainers.image.source=$REPO_URL" \
@@ -9,9 +9,10 @@ docker build \
 
 # docker push
 
-if [[ $IMAGE == *"locally" ]];then
-    echo "this image is build locally and load into minikube ..."
-    minikube image load "$IMAGE"
+if [[ $IMAGE == *"locally" ]]; then
+  echo "this image is build locally and load into minikube ..."
+  minikube image load "$IMAGE"
+else
+  echo "this image is push to remote server ..."
+  docker push "$IMAGE"
 fi
-
-docker push "$IMAGE"
