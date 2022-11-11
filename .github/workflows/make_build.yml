@@ -24,5 +24,5 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      # TODO install necessary tools in ci
+      - run: ./scripts/auto/ci-setup
       - run: make build

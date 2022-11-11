@@ -13,8 +13,6 @@ create order, calculate total price of products and send notification to warehou
 - istio & k8s
   - [ ] health check
   - [ ] grpc gateway & expose rest api
-- ci/cd enhance
-  - [ ] setup github actions ci to build artifact to packages
 - setup cloud modules
   - [ ] aws
   - [ ] gcp
