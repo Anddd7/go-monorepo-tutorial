@@ -1,4 +1,4 @@
-namespace: macos-dev
+namespace: colima-dev
 
 bases:
   - ../../base

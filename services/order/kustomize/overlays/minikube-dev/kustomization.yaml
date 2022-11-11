@@ -1,0 +1,4 @@
+namespace: minikube-dev
+
+bases:
+  - ../../base
