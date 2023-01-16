@@ -8,6 +8,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+permissions:
+  repository-projects: write
+
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
