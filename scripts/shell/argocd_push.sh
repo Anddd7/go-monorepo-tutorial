@@ -11,4 +11,4 @@ fi
 
 git add -A
 git commit -m "auto generated manifest ${msg}" || echo "No changes to commit"
-git push
+git push origin HEAD:master
