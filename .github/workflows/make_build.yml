@@ -8,9 +8,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-permissions:
-  repository-projects: write
-
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
@@ -19,6 +16,11 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
+#      - name: Checkout the manifest repository
+#        uses: actions/checkout@v3
+#        with:
+#          repository: Anddd7/go-monorepo-tutorial-argocd
+#          path: './artifact/argocd'
       - uses: actions/setup-go@v3
         with:
           go-version: '>=1.18.0'
@@ -27,6 +29,6 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.MY_GITHUB_TOKEN }}
       - run: ./scripts/auto/dev-setup-linux
       - run: make build
