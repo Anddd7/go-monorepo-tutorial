@@ -10,6 +10,7 @@ create order, calculate total price of products and send notification to warehou
 
 ## todo list
 
+- argo project setup
 - istio & k8s
   - [ ] health check
   - [ ] grpc gateway & expose rest api
