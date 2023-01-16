@@ -12,4 +12,4 @@ setup-macos:
 	./scripts/shell/dev-setup-macos.sh
 
 clone-artifact:
-	git -C artifact/argocd pull || git clone git@github.com:Anddd7/go-monorepo-tutorial-argocd.git artifact/argocd
+	git -C artifact/argocd pull || git clone https://github.com/Anddd7/go-monorepo-tutorial-argocd.git artifact/argocd
