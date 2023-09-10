@@ -1,0 +1,10 @@
+@user-managment-team
+@ordering-team
+@cloudops-team
+
+
+./layer0                    @cloudops
+./layer1                    @cloudops
+./layer2                    @cloudops
+./layer2/*/user-managment   @user-managment-team
+./layer2/*/ordering         @ordering-team

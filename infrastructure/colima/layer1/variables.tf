@@ -1,2 +1,0 @@
-variable "platform" {}
-variable "domain" {}

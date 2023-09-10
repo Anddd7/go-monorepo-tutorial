@@ -1,0 +1,28 @@
+# the central vpc to deploy shared resources
+central-china: 
+  vpc: "10.128.0.0/24"
+  # shared subnet for shared resources, like transit router
+  shared_subnet:
+    cn-shanghai-b: "10.128.0.0/28"
+    cn-shanghai-e: "10.128.0.16/28"
+
+# region 1
+cn-shanghai:
+  # vpc for dev, qa, uat
+  non-prod:
+    vpc: "10.128.64.0/18"
+    shared_subnet:
+      cn-shanghai-b: "10.128.64.0/28"
+      cn-shanghai-e: "10.128.64.16/28"
+  # vpc for internet access
+  internet:
+    vpc: "10.128.128.0/18"
+    shared_subnet:
+      cn-shanghai-b: "10.128.128.0/28"
+      cn-shanghai-e: "10.128.128.16/28"
+  # vpc for internal access
+  intranet:
+    vpc: "10.128.192.0/18"
+    shared_subnet:
+      cn-shanghai-b: "10.128.192.0/28"
+      cn-shanghai-e: "10.128.192.16/28"

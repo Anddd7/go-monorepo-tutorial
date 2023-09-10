@@ -1,0 +1,25 @@
+# prerequisite:
+#   role, group and permission should already created in cloud provider
+#   here just create user and assign it to group
+
+# mapping to - readonly, limited resources
+users:
+  - name: po1
+    email: po1@example.com
+
+# mapping to - admin, limited resources
+leaders:
+  - name: leader1
+    email: leader1@example.com
+
+# mapping to - admin, all
+cloudops:
+  - name: cloudops1
+    email: cloudops1@example.com
+  - name: cloudops2
+    email: cloudops2@example.com
+
+# mapping to - write, non prod only
+devs:
+  - name: dev1
+    email: dev1@example.com
